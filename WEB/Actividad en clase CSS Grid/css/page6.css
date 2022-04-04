@@ -1,0 +1,41 @@
+
+body{
+
+    background-color:#2C3042 ;
+    }
+    .grid {
+        height:100%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 10px;
+        grid-auto-rows: minmax(100px, auto);
+
+  
+      }
+      .one {
+   
+       background-color: #FC5F57;
+        
+      }
+      .two {
+        
+          background-color: #FD825C;
+      }
+      .three {
+     
+        background-color: #FD9F60;
+      }
+      .four {
+        
+        background-color: #00A687;
+      }
+      .five {
+        
+        background-color: #1CC1A0;
+      }
+      .six {
+       
+        background-color: #34DABA;
+      }
+
+ 

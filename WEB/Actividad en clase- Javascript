@@ -1,0 +1,359 @@
+/*
+Daniel Sánchez Sánchez - Aldana
+A01781575
+Febrero 28, 2022
+Construcción de software y toma de decisiones
+Actividad en clase: Javascript
+*/
+
+/*
+1. Escribe una función que encuentre el primer carácter de un cadena de texto que no se repite. Prueba tu función con: 'abacddbec'
+*/
+
+const ej1 = (text)=>{
+    let  first = true;
+    
+    
+    for(let i = 0; i < text.length; i++){
+      let complete = false;
+      let val = text[i]
+      
+      for(let ii = 0; ii < text.length; ii++){
+        
+        if(val === text[ii] && i !== ii){
+          complete = true;  
+        }
+      }
+      
+      if(!complete && first){
+        console.log(val)
+          first = false;
+      }
+      
+    }
+  }
+  
+  console.log('------------ 1 ---------')
+  ej1('abacddbec')
+  ej1('lolololododfororogog')
+  ej1('Esto esta funcionando E?ne')
+  console.log('--------------------')
+  
+  
+  /*
+  2. Escribe una función que implemente el algoritmo 'bubble-sort' para ordenar una lista de números.
+  */
+  
+  const ej2 = (numbs) =>{
+    
+    for(let ii = 0; ii < numbs.length; ii++){
+        for(let i = 0; (i-1) < numbs.length; i++){
+      if(numbs[i] < numbs[i+1]){
+        let val = numbs[i];
+        
+        numbs[i] = numbs[i+1];
+        numbs[i+1] = val;
+        
+      }
+    }
+      
+    }
+  
+    console.log(numbs)
+  }
+  
+  console.log('------------ 2 ---------')
+  ej2([1,245,54,3,4,445,44,4,4,4,2345])
+  ej2([1,2,3,4,5])
+  ej2([1,1,1,2,3,2,3,54,6,7456,45,4567,456])
+  console.log('--------------------')
+  
+  
+  /*
+  3. Escribe una función que implemente el algoritmo 'merge-sort' para ordenar una lista de números.
+  */
+  const merge= (a, b) => {
+    let c = []
+  
+    while (a.length && b.length) {
+      c.push(a[0] > b[0] ? b.shift() : a.shift())
+    }
+
+    while (a.length) {
+      c.push(a.shift())
+    }
+    while (b.length) {
+      c.push(b.shift())
+    }
+  
+    return c
+  }
+  
+  const mergeSort = (a) => {
+    if (a.length < 2) return a
+    const middle = Math.floor(a.length / 2)
+    const left = a.slice(0, middle)
+    const right = a.slice(middle, a.length)
+    const sortedLeft = mergeSort(left)
+    const sortedRight = mergeSort(right)
+    return(merge(sortedLeft, sortedRight))
+  }
+
+  const ej3 = (a)=>{
+    console.log(mergeSort(a))
+  }
+
+  console.log('------------ 3 ---------')
+ ej3([3,4,35,35,5,999,12])
+ ej3([5,4,3,2,1])
+ ej3([89,4,1,0,0,0,1232,2,3])
+ console.log('---------------------')
+  
+
+
+  /*
+  4. Escribe dos funciones: la primera que invierta un arreglo de números y regrese un nuevo arreglo con el resultado; la segunda que modifique el mismo arreglo que se pasa como argumento. No se permite usar la función integrada 'reverse'.
+  */
+  
+  const ej4_1 = (arr)=>{
+    
+    let newArr = [];
+    
+    for(let i = 0; i < arr.length; i++){
+      
+      
+      newArr[i] = arr[arr.length-i-1]
+      
+    }
+   console.log(newArr)
+  }
+  
+  
+  console.log('------------ 4.1 ---------')
+  ej4_1([1,2,3,4,5])
+  ej4_1([11,12,13,15,16])
+  ej4_1([555,444,111,777,2324])
+  console.log('--------------------')
+  
+  
+  
+  const ej4_2 = (arr, index, newValue)=>{
+    
+    if(index >= arr.length){
+      console.log('Index given out of bounds. Array Length: ' + arr.length + " Index given: " + index) 
+    }else{
+       arr[index] = newValue;
+      console.log(arr)
+    }  
+  }
+  
+  console.log('------------ 4.2 ---------')
+  ej4_2([1,32,2,2,2,2,2],5, 1000)
+  ej4_2([1,32243,33,2],10, 1000)
+  ej4_2([4,9,8,3,5,6,5234],5, 1000)
+  console.log('--------------------')
+  
+  
+  /*
+  5. Usando la definición de clase de Javascript ES6, crea una clase que se llame 'Vector' que represente un vector de 3 dimensiones. La clase debe de poder sumar y restar vectores, obtener su magnitud, obtener el vector unitario, y multiplicar por un escalar.
+  */
+  
+  
+  class Vector{
+    constructor(x, y,z){
+      this.x =x;
+      this.y = y;
+      this.z =z;
+    }
+    
+   
+   magnitud(){
+      let newX =this.x * this.x, newY = this.y* this.y, newZ = this.z * this.z;  
+      console.log(Math.sqrt(newX+ newY+ newZ))
+    
+    }
+    
+    escalar(esc){
+      let newVector = new Vector(this.x * esc, this.y * esc, this.z * esc)
+      console.log(newVector);
+    }
+    
+    sumaYRestaVectores (vectores){
+    
+    let x=0 ,y=0,z=0;
+   
+    vectores.forEach((vector)=>{
+      x = x + vector.x
+      y = y + vector.y
+      z = z + vector.z
+    })
+    
+    let vector = new Vector(x,y,z);
+    console.log(vector)
+    }
+    
+    vectorUnitario(){
+      let mag = Math.sqrt(this.x * this.x) + (this.y* this.y)  +(this.z * this.z);
+      console.log(new Vector( this.x/mag, this.y/mag, this.z/mag  ))
+      
+    }
+  }
+  
+  
+  console.log('------------ 5 ------------')
+  console.log('------------- Suma Y resta Vectores ---------')
+  let vec = new Vector();
+  vec.sumaYRestaVectores([new Vector(1,2,3),new Vector(3,2,1)])
+  vec.sumaYRestaVectores([new Vector(-99,-23,22),new Vector(123,-22,-22)])
+  vec.sumaYRestaVectores([new Vector(-5,4,-3),new Vector(5,-4,3)])
+  
+  
+  console.log('------------- Magnitud De un Vector ---------')
+  
+   let vector1 = new Vector(1,4,5);
+   vector1.magnitud();
+  
+   let vector2 = new Vector(-1,-1,-1);
+   vector2.magnitud();
+  
+   let vector3 = new Vector(-123,22,23123);
+   vector3.magnitud();
+  
+  
+  
+  console.log('------------- Vector Unitario ---------')
+  vector1.vectorUnitario();
+  vector2.vectorUnitario();
+  vector3.vectorUnitario();
+  
+  
+  
+  console.log('------------- Vector por escalar ---------')
+  vector1.escalar(5);
+  vector2.escalar(-2);
+  vector3.escalar(123);
+  
+  console.log('------------------------')
+  
+  
+  
+  
+  /*
+  6. Escribe una función que calcule el máximo común divisor de dos números.
+  */
+  
+  
+  const ej6 = (a,b) =>{
+    let max = (a > b)? a: b;
+    let mcd = false;
+    while(mcd === false){
+      if(a%max === 0 && b%max=== 0){
+         console.log(max)
+        mcd = true;
+      }else{
+        max = max-1;
+      }
+    }
+  }
+  
+  console.log('------------ 6 ---------')
+  ej6(15,230)
+  ej6(48,35)
+  ej6(485,354)
+  
+  console.log('--------------------')
+  
+  
+  /*
+  7. Usando ojetos de tu clase 'Vector', crea una función que reciba dos vectores, y que indique si esos vectores son ortogonales o no.
+  */
+  
+  const ej7 = (vec1, vec2)=>{
+    let newVar = (vec1.x * vec2.x) + (vec1.y * vec2.y )+ (vec1.z * vec2.z);
+    if(newVar === 0){
+      console.log('SON Ortogonales')
+    }else{
+      console.log('NO SON ORTOGONALES')
+    }
+  
+  }
+
+
+  console.log('------------ 7 ---------')
+
+  ej7(new Vector(2,4,6), new Vector(-55,-55,23))
+  ej7(new Vector(0,0,0), new Vector(1,1,1))
+  ej7(new Vector(1,1,2), new Vector(2,2,1))
+  console.log('--------------------')
+  
+  
+  
+  /*
+  8. Crea una función que cambie una cadena de texto a 'Hacker Speak'. Por ejemplo, para la cadena 'Javascript es divertido', su hacker speak es: 'J4v45c1pt 35 d1v3rt1d0'.
+  */
+  
+  const ej8 = (text) =>{
+    let newText =''
+    const map = new Map(
+    [['a','4'],['e','3'],['i','1'],['o', '0'], ['s','5'], ["b","8"] ])
+    
+    for(let i = 0; i < text.length; i++){
+      let newChar = (map.get(text[i]) === undefined)?                        text[i]: map.get(text[i])
+      newText = newText + newChar;
+    }
+   
+    console.log(newText)
+    
+  }
+  
+  console.log('------------ 8 ---------')
+  ej8('hello')
+  ej8('No se que puedo poner para usar todos los caracteres, batman')
+  ej8('Javascript es divertido')
+  console.log('--------------------')
+  
+  /*
+  9. Escribe una función que reciba un número, y regrese una lista con todos sus factores. Por ejemplo: factoriza(12) -> [1, 2, 3, 4, 6, 12].
+  */
+  
+  const ej9 = (num)=>{
+    let max = num;
+    let lis = [];
+    
+    while(max > 0){
+      if(num%max === 0){
+        lis.push(max)
+      }
+      max = max-1;
+    }
+    console.log(lis)
+  }
+  
+  console.log('------------ 9 ---------')
+  ej9(12);
+  ej9(123);
+  ej9(1232);
+  console.log('--------------------')
+  
+  
+  /*
+  10. Escribe una función que quite los elementos duplicados de un arreglo y regrese una lista con los elementos que quedan. Por ejemplo: quitaDuplicados([1, 0, 1, 1, 0, 0]) -> [1, 0]
+  */
+  
+  const ej10 = (arr)=>{
+    let map = new Map();
+    
+    arr.forEach((e)=>{
+     map.set(e, Math.random())
+    })
+    
+    
+    let arrr = Array.from(map.keys());
+    console.log(arrr)
+  }
+  
+  console.log('------------ 10 ---------')
+  ej10([1,1,1,1,1,2,243,234,234,2322,2,2,2,23])
+  ej10([1,1,1,1,1,2,2,2,2,2,3,3,3,3,3,4,4,4,4,5,5,55,5])
+  ej10([123,123,453,234,645,34,453,34])
+  console.log('--------------------')

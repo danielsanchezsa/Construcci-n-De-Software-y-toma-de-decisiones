@@ -1,0 +1,101 @@
+body{
+    margin: auto;
+}
+
+.navBar{
+    display: flex;
+    flex-direction: row;
+    background-color: #25404B;
+    align-items: center;
+ 
+
+}
+
+#navBarList{
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: row;
+
+}
+#navBarTitle{
+    font-size: large;
+    color:white;
+    font-weight: 900;    
+    flex-grow: 2;
+    padding-left: 10%;
+}
+
+.navBar p{
+    font-size: small;
+
+    padding-right: 10%;
+    color:white;
+}
+
+#content{
+    padding: 10px;
+    background-color: #B97D2D;
+    align-items: center;
+    text-align: center;
+
+}
+h1{
+    color: white;
+    padding-top: 5%;
+}
+#content p{
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 10%;
+    color: white;
+}
+
+#subscribe{
+    display: flex;
+    flex-direction: row;
+    background-color: #25404B;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+h2{
+    font-size: 20px;
+    padding-right: 20px;
+    color: white;
+}
+
+
+#subButton{
+
+    background-color: #B97D2D;
+    color: white;
+}
+
+
+#tools{
+    display: flex
+    
+}
+
+.tool{
+    padding: 10px;
+
+    text-align: center;
+
+}
+.imgTool{
+    width: 70px;
+    height: 70px;
+}
+
+
+#footer{
+    font-size: 12px;
+    padding: 1px;
+    text-align: center;
+    color: white;
+    flex-direction: row;
+    background-color: #25404B;
+}

@@ -1,0 +1,29 @@
+body{
+
+    background-color:#2C3042 ;
+    }
+    .grid {
+        height:100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+        grid-auto-rows: minmax(100px, auto);
+      }
+      .one {
+          grid-column: 1/3;
+        
+       background-color: #FC5F57;
+        
+      }
+      .two {
+        grid-column: 3/4;
+          grid-row: 1/3;
+          background-color: #FD825C;
+      }
+      .three {
+        background-color: #00A687;
+      }
+      .four {
+        background-color: #1CC1A0;
+      }
+  

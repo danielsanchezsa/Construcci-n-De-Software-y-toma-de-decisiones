@@ -1,0 +1,44 @@
+
+body{
+
+    background-color:#2C3042 ;
+    }
+    .grid {
+        height:100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+        grid-auto-rows: minmax(100px, auto);
+      }
+      .one {
+       background-color: #FC5F57;
+        grid-row: 2/5;
+      }
+      .two {
+        margin: 10;
+          background-color: #FD825C;
+      }
+      .three {
+        background-color: #FD9F60;
+      }
+      .four {
+        margin: 10;
+        background-color: #00A687;
+      }
+      .five {
+        background-color: #1CC1A0;
+        grid-row: 2/5;
+      }
+      .six {
+   
+        background-color: #34DABA;
+      }
+
+      .grid2 {
+        
+        height:100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        
+        grid-auto-rows: minmax(100px, auto);
+      }

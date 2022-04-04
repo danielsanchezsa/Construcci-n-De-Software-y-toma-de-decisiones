@@ -1,0 +1,35 @@
+body{
+
+    background-color:#2C3042 ;
+    }
+    .grid {
+        height:100%;
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        grid-gap: 10px;
+        grid-auto-rows: minmax(100px, auto);
+   
+      }
+      .one {
+        background-color: #FD825C;
+        grid-column: 1/6;
+      }
+      .two {
+        grid-column: 6/11;
+        background-color: #FC5F57;
+       
+      }
+      .three {
+        grid-column: 1/4;
+        background-color: #00A687;
+        
+      }
+      .four {
+        grid-column: 4/11;
+        background-color: #1CC1A0;
+      }
+      .five {
+        grid-column: 1/11;
+        background-color: #FD9F60;
+      }
+   
